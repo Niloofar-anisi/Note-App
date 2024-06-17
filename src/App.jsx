@@ -8,10 +8,10 @@ function App() {
   const handleAddNote =(newNote)=>{
    setNotes((prevNotes)=>[...prevNotes,newNote]);
   };
-  
+
   return(
     <div className="container">
-    <div className="note-header">note-header</div>
+    <div className="note-header">Todo List</div>
     <div className="note-app">
       <AddNewNote onAddNote={handleAddNote}/>
       <div className="note-container">
