@@ -102,3 +102,8 @@
   color: var(--text-300);
   text-align: center;
 }
+
+.No-Note{
+  margin-top: 6rem;
+  color: rgb(84, 84, 84);
+}
