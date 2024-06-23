@@ -26,8 +26,8 @@ function AddNewNote({onAddNote}) {
     <div className="add-new-note">
         <h2>Add New Note</h2>
         <form className="note-form" onSubmit={handelSubmit}>
-            <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" className="text-field" placeholder="title"/>
-            <input value={description} onChange={(e)=>setDescription(e.target.value)} type="text" className="text-field" placeholder="description"/>
+            <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" className="text-field" placeholder="Title"/>
+            <input value={description} onChange={(e)=>setDescription(e.target.value)} type="text" className="text-field" placeholder="Description"/>
             <button type="submit" className="btn btn--primary">Add New Note</button>
         </form>
     </div>

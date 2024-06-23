@@ -7,10 +7,11 @@
 
 .note-header {
   display: flex;
+  font: inherit;
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 3rem;
-  border-bottom: 1px solid var(--text-400)
+  border-bottom: 1px solid #FFF
 }
 
 .note-app {
@@ -35,8 +36,9 @@
 .note-status {
   display: flex;
   justify-content: space-between;
-  color: var(--text-400);
+  color:#fff;
   margin-bottom: 2rem;
+  font-weight: 500;
 }
 
 .note-status span {
@@ -45,7 +47,7 @@
   background-color: var(--text-400);
   padding: 0.2rem 0.3rem;
   font-size: 0.75rem;
-  color: var(--text-100);
+  color: #fff;
 }
 
 .note-item {

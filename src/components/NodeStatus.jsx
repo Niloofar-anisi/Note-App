@@ -2,7 +2,7 @@ function NodeStatus({ notes}) {
     const allNotes = notes.length;
     const completedNotes = notes.filter((not)=>not.completed).length
     const openNotes = allNotes - completedNotes
-  if (!allNotes)return <h2 className="No-Note">No text available, please add a new text.</h2>
+  if (!allNotes)return <h2 className="No-Note">No Text Available, Please Add A New Text.</h2>
     return (
       <ul className="note-status">
         <li>

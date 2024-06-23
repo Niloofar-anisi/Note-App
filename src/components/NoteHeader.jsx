@@ -4,9 +4,9 @@ function NoteHeader({notes,sortBy ,onSort}) {
     <div className="note-header">
       <h2>My Notes({notes.length})</h2>
       <select value={sortBy} onChange={onSort}>
-        <option value="earliest">sort based on earliest notes</option>
-        <option value="latest">sort based on latest notes</option>
-        <option value="completed">sort based on completed notes</option>
+        <option value="earliest">Sort Based On Earliest Notes</option>
+        <option value="latest">Sort Based On Latest Notes</option>
+        <option value="completed">Sort Based On Completed Notes</option>
       </select>
     </div>
   )

@@ -16,8 +16,6 @@ if (sortBy === "completed")
   (a,b) => Number(a.completed) - Number(b.completed)
 )
 
-
-
   return (
     <div className="note-list">
       {sortedNotes.map((note)=>(

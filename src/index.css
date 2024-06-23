@@ -20,9 +20,9 @@
 }
 
 body {
-  background-color: var(--bg-color);
+  background-image: linear-gradient(to right, #949ae5 40%, #e2c1c9 100%); 
   width: 100vw;
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 input {
