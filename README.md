@@ -2,7 +2,7 @@ TO-DO List
 
 A to-do list is a list of tasks that helps you identify the things you need to do. This practical tool allows you to organize and prioritize your tasks, making it easy for you to track and complete them, ultimately helping you reach your goals and objectives.
 
-- [Demo Project](https://niloofar-anisi.github.io/restaurant/)
+- [Demo Project]
 
 
 ![1](https://github.com/Niloofar-anisi/Note-App/assets/136443219/a2ecbaa9-82c5-48cf-8e44-b43a40fa2eb1)
