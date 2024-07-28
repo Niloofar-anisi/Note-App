@@ -1,52 +1,68 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import "./App.css";
 import AddNewNote from "./components/AddNewNote";
 import NoteLiist from "./components/NoteLiist";
 import NodeStatus from "./components/NodeStatus";
-import NoteHeader from "./components/NoteHeader"
+import NoteHeader from "./components/NoteHeader";
+
+function notesReducer(notes, action) {
+  switch (action.type) {
+    case "add": {
+      return [...notes, action.payload];
+    }
+    case "delete": {
+      return notes.filter((s) => s.id !== action.payload);
+    }
+    case "completed": {
+      return notes.map((note) =>
+        note.id === action.payload
+          ? { ...note, completed: !note.completed }
+          : note
+      );
+    }
+    default:
+      throw new Error("unknown Error" + action.type);
+  }
+}
 
 function App() {
-  const [notes,setNotes] = useState([]);
-  const [sortBy,setSortBy] = useState("")
+  const [notes, dispatch] = useReducer(notesReducer, []);
+  const [sortBy, setSortBy] = useState("");
 
-  const handleAddNote =(newNote)=>{
-   setNotes((prevNotes)=>[...prevNotes,newNote]);
-  }
+  const handleAddNote = (newNote) => {
+    dispatch({ type: "add", payload: newNote });
+  };
 
   const handleOnDeleted = (id) => {
-    setNotes(prevNotes=>prevNotes.filter(n=>n.id !== id))
-  }
+    dispatch({ type: "delete", payload: id });
+  };
 
-  const handleOnCompleted = (e) =>{
-    const noteId = Number(e.target.value)
-    setNotes((prevNotes)=>prevNotes.map((note)=>note.id === noteId ? {...note, completed :!note.completed}:note))
-  }
-  
-  return(
+  const handleOnCompleted = (e) => {
+    const noteId = Number(e.target.value);
+    dispatch({ type: "completed", payload: noteId });
+  };
+
+  return (
     <div className="container">
       <NoteHeader
-        notes={notes} 
-        sortBy={sortBy} 
-        onSort={(e)=>setSortBy(e.target.value)}
+        notes={notes}
+        sortBy={sortBy}
+        onSort={(e) => setSortBy(e.target.value)}
       />
       <div className="note-app">
-        <AddNewNote 
-         onAddNote={handleAddNote}
-        />
+        <AddNewNote onAddNote={handleAddNote} />
         <div className="note-container">
-          <NodeStatus
+          <NodeStatus notes={notes} />
+          <NoteLiist
             notes={notes}
-          />
-          <NoteLiist 
-           notes={notes} 
-           sortBy={sortBy} 
-           onDeleted={handleOnDeleted} 
-           onCompleted={handleOnCompleted}
+            sortBy={sortBy}
+            onDeleted={handleOnDeleted}
+            onCompleted={handleOnCompleted}
           />
         </div>
       </div>
-  </div>
-  ) 
+    </div>
+  );
 }
 
 export default App;
